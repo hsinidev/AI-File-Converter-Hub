@@ -1,0 +1,66 @@
+
+import { Converter } from './types';
+import { DocumentTextIcon, PhotographIcon, CodeBracketIcon, SparklesIcon, ChatAlt2Icon, BookOpenIcon } from './components/icons';
+
+export const CONVERTERS: Converter[] = [
+  {
+    id: 'image-to-text',
+    name: 'Image to Text (OCR)',
+    description: 'Extract all text from an image. Ideal for documents and signs.',
+    Icon: DocumentTextIcon,
+    acceptedFileTypes: 'image/png, image/jpeg, image/webp',
+    promptLabel: 'Optional: What kind of text are you looking for?',
+    requiresPrompt: false,
+    model: 'gemini-2.5-flash',
+  },
+  {
+    id: 'summarize-document',
+    name: 'Summarize Document',
+    description: 'Get a quick summary of a long document. Supports .txt, .pdf, and .doc(x) files.',
+    Icon: BookOpenIcon,
+    acceptedFileTypes: '.txt,.pdf,.doc,.docx',
+    promptLabel: 'Optional: Specify summary length or key points to focus on.',
+    requiresPrompt: false,
+    model: 'gemini-2.5-flash',
+  },
+  {
+    id: 'rephrase-document',
+    name: 'Rephrase Document',
+    description: 'Change the tone of your document. Supports .txt, .pdf, and .doc(x) files.',
+    Icon: ChatAlt2Icon,
+    acceptedFileTypes: '.txt,.pdf,.doc,.docx',
+    promptLabel: 'How should I rephrase this? (e.g., "Make it sound more professional")',
+    requiresPrompt: true,
+    model: 'gemini-2.5-flash',
+  },
+  {
+    id: 'text-to-json',
+    name: 'Text to JSON',
+    description: 'Convert unstructured text from a document into JSON. Supports .txt, .pdf, and .doc(x) files.',
+    Icon: CodeBracketIcon,
+    acceptedFileTypes: '.txt,.pdf,.doc,.docx',
+    promptLabel: 'Describe the JSON structure you want. (e.g., "Extract name and email")',
+    requiresPrompt: true,
+    model: 'gemini-2.5-pro',
+  },
+  {
+    id: 'story-from-image',
+    name: 'Story from Image',
+    description: 'Generate a short, creative story based on the contents of an image.',
+    Icon: SparklesIcon,
+    acceptedFileTypes: 'image/png, image/jpeg, image/webp',
+    promptLabel: 'Optional: Any specific themes for the story?',
+    requiresPrompt: false,
+    model: 'gemini-2.5-flash',
+  },
+  {
+    id: 'image-alt-text',
+    name: 'Image Description (ALT)',
+    description: 'Generate descriptive alt-text for an image for SEO and accessibility.',
+    Icon: PhotographIcon,
+    acceptedFileTypes: 'image/png, image/jpeg, image/webp',
+    promptLabel: 'Optional: Mention any key objects to focus on.',
+    requiresPrompt: false,
+    model: 'gemini-2.5-flash',
+  },
+];
